@@ -1,7 +1,6 @@
 import os
+import sys
 from mako.template import Template
-from src.requester import asker
-
 
 def q_compare(value1, value2):
     comp1, comp2 = int(round(value1)), int(round(value2))
@@ -43,8 +42,7 @@ def plot_pair_data(r_data):
     return pair_data
 
 
-def get_time_weather():
-    data = asker.get_weather_by_coords(current=False)
+def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
     w_list = data['list'][0:8]
     r_data = [(w_list[i], w_list[i + 1]) for i in xrange(0, len(w_list) - 1, 2)]
     parts = plot_pair_data(r_data)
@@ -52,8 +50,12 @@ def get_time_weather():
     return parts
 
 
-def get(dst_file='index.html'):
+def get_index(r_data,
+              src_file=os.path.join('renders', 'templates', 'index'),
+              dst_file='index.html'):
     dst_file_name = os.path.join(dst_file)
-    src_file_name = os.path.join('templates', 'index')
+    src_file_name = os.path.join(src_file)
+    weather = get_time_weather(r_data)
+
     with open(dst_file_name, "w") as f:
-        f.write((Template(filename=src_file_name).render_unicode(**{'values': get_time_weather()})))
+        f.write((Template(filename=src_file_name).render_unicode(**{'values': weather})))
