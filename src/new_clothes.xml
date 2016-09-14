@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<clothes>
+    <thing>
+        <top>
+            <item name="light top">
+                <size>M</size>
+                <temp>17/25</temp>
+                <wind>no</wind>
+                <rain>no, light</rain>
+                <season>Summer</season>
+            </item>
+            <item name="warm top">
+                <size>XL</size>
+                <temp>13/23</temp>
+                <wind>yes</wind>
+                <rain>no, light, heavy</rain>
+                <season>Autumn</season>
+            </item>
+        </top>
+        <pants>
+            <item name="shorts">
+                <size>M</size>
+                <temp>23/25</temp>
+                <wind>no, yes</wind>
+                <rain>no, light</rain>
+                <season>Summer</season>
+            </item>
+            <item name="pants">
+                <size>M</size>
+                <temp>13/23</temp>
+                <wind>no, yes</wind>
+                <rain>no, light</rain>
+                <season>Summer</season>
+            </item>
+        </pants>
+        <shoes>
+            <item name="sandals">
+                <size>M</size>
+                <temp>17/25</temp>
+                <wind>no, yes</wind>
+                <rain>no, light</rain>
+                <season>Summer</season>
+            </item>
+        </shoes>
+    </thing>
+
+</clothes>
