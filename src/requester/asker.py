@@ -1,7 +1,6 @@
 __author__ = 'Alex'
 
 import urllib2
-import pprint
 import json
 """
 Parameters:
@@ -43,9 +42,9 @@ Parameters:
         list.dt_txt Data/time of caluclation, UTC
 """
 def get_weather_by_citi(siti_name='Moscow,ru',
-               resp_type='json',
-               api_key='75b6261dbe3a53e99112252f5435a9cc',
-               current=True): #weather forecast
+                        resp_type='json',
+                        api_key='75b6261dbe3a53e99112252f5435a9cc',
+                        current=True): #weather forecast
     req_type = 'weather'
     if not current:
         req_type = 'forecast'
@@ -59,15 +58,14 @@ def get_weather_by_citi(siti_name='Moscow,ru',
 
 # 55.684647, 37.340472 Skoltech
 def get_weather_by_coords(lat=55.684647,
-                         lon=37.340472,
-                         resp_type='json',
-                         api_key='75b6261dbe3a53e99112252f5435a9cc',
-                         current=True):
+                          lon=37.340472,
+                          resp_type='json',
+                          api_key='75b6261dbe3a53e99112252f5435a9cc',
+                          current=True):
     req_type = 'weather'
     if not current:
         req_type = 'forecast'
-    url = 'http://api.openweathermap.org/data/2.5/{}?lat={}&lon={}&mode={}&appid={' \
-          '}&units=metric'\
+    url = 'http://api.openweathermap.org/data/2.5/{}?lat={}&lon={}&mode={}&appid={}&units=metric'\
         .format(req_type, lat, lon, resp_type, api_key)
     sock = urllib2.urlopen(url)
     data = json.load(sock)

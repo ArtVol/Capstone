@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta charset="utf-8" http-equiv="Refresh" content="150">
+        <title>ClothesAdvisor</title>
+    </head>
+    <body>
+        % for value in values:
+        <frame>
+            <div style="float: left; width: 130px;">
+                <div>${value['title']}</div>
+                <div style="display: block; clear: left;">
+                    <div style="float: left;" title="Titel">
+                        <img height="45" width="45" style="border: medium none; width: 45px; height:
+                        45px; background: url(&quot;http://openweathermap.org/img/w/${value['icon']}.png&quot;)
+                        repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png"/>
+                    </div>
+                    <div style="float: left;">
+                        <div style="display: block; clear: left; font-size: medium; font-weight:
+                        bold; padding: 0pt 3pt;" title="Current Temperature">${value['temp']} &deg;C</div>
+                        <div style="display: block; width: 85px; overflow: visible;"></div>
+                    </div>
+                </div>
+                <div style="display: block; clear: left; font-size: small;">Clouds:
+                    ${value['clouds']} %</div>
+                <div style="display: block; clear: left; color: gray; font-size: x-small;" >Humidity:
+                    ${value['humidity']} %</div>
+                <div style="display: block; clear: left; color: gray; font-size: x-small;" >Wind:
+                    ${value['wind']} m/s</div>
+                <div style="display: block; clear: left; color: gray; font-size: x-small;" >Pressure:
+                    ${value['pressure']} hpa</div>
+            </div>
+        </frame>
+    % endfor
+    </body>
+</html>

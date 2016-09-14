@@ -1,0 +1,7 @@
+values = [ {'icon': ... ,
+            'temp': ... ,
+            'clouds': ... ,
+            'humidity': ... ,
+            'wind': ... ,
+            'pressure': ... ,
+            'title': ... )}, ... ]
