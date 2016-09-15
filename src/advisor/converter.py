@@ -31,6 +31,6 @@ class Converter():
             weather["WIND"] = "yes"
 
         # TEMP
-        weather["TEMP"] = str(int(data["main"]["temp"]))
+        weather["TEMP"] = (int(data["main"]["temp"]))
 
         return weather

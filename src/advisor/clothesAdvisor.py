@@ -72,40 +72,6 @@ def doParse(src):
              "RAIN":    c['rain'],
              "SEASON":  c['season']
         }
-    # data = {}
-    # for a in top[0]:
-    #     for b in top[0][a]:
-    #         oneType = top[0][a][b]    # Head, top, pants, shoes, other
-    #        # print oneType
-    #         if(not data.get(a.upper())):
-    #             data[a.upper()] = {}
-    #         for c in oneType:
-    #             if(not data.get(a.upper())):
-    #                 data[a.upper()][c["@name"]] = {}
-    #             print c
-    #             data[a.upper()][c["@name"]] = {
-    #                  "SIZE":   c['size'],
-    #                  "TEMP":   c['temp'].split("/"),
-    #                  "WIND":   c['wind'],
-    #                  "RAIN":   c['rain'],
-    #                  "SEASON": c['season']
-    #              }
-    # for c in top:
-    #     data["TOP"][c["@name"]] = {
-    #         "SIZE":    c['size'],
-    #         "TEMP":    c['temp'].split("-"),
-    #         "WIND":    c['wind'],
-    #         "RAIN":    c['rain'],
-    #         "SEASON":  c['season']
-    #     }
-    # for c in pants:
-    #     data["PANTS"][c["@name"]] = {
-    #         "SIZE":   c['size'],
-    #         "TEMP":   c['temp'].split("-"),
-    #         "WIND":   c['wind'],
-    #         "RAIN":   c['rain'],
-    #         "SEASON": c['season']
-    #     }
     return data
 
 def clothesAdvisor(data):
@@ -114,10 +80,14 @@ def clothesAdvisor(data):
         with open(xmls_dir + "\\new_clothes.xml") as src:
             parse = doParse(src)
         out = ''
+        print data
         for p in parse:
             for c in parse[p]:
+                print c, parse[p][c]["TEMP"][0], parse[p][c]["TEMP"][1]
                 if data["RAIN"] in parse[p][c]["RAIN"]:
                     if data["WIND"] in parse[p][c]["WIND"]:
-                        if data["TEMP"] >= parse[p][c]["TEMP"][0] and data["TEMP"] <= parse[p][c]["TEMP"][1]:
+                        if data["TEMP"] >= int(parse[p][c]["TEMP"][0]) and data["TEMP"] <= int(parse[p][c]["TEMP"][1]):
+                            print data["TEMP"] <= parse[p][c]["TEMP"][1], data["TEMP"], parse[p][c]["TEMP"][0], parse[p][c]["TEMP"][1]
+                            print
                             out += c + ", "
         return out
