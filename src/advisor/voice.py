@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # Requires PyAudio and PySpeech.
-import pprint
+import os
 
 import speech_recognition as sr
-import clothesAdvisor
-from converter import Converter
-from playsound import playsound
-from time import ctime
 from gtts import gTTS
-from xml_parse import doParse
+from playsound import playsound
+
+from clothesAdvisor import clothesAdvisor
+from converter import Converter
+
 
 class Voice():
     def speak(self, audioString):
@@ -45,8 +45,6 @@ class Voice():
     def dress(self, data):
         converter = Converter()
         parse = {}
-        with open("clothes.xml") as src:
-            parse = doParse(src)
 
         weather = converter.conv(parse, data)
         data = {
@@ -56,13 +54,13 @@ class Voice():
         }
         # print clothesAdvisor.clothesAdvisor(data)
 
-        ostr = "No time to explain, dress up " + clothesAdvisor.clothesAdvisor(data) + "and go OUT!. Good day."
+        ostr = "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT!. Good day."
 
         #ostr = "In my mind, you should dress up " + clothesAdvisor.clothesAdvisor(data) + ". Good day."
         return ostr
 
     def jarvis(self, data):
-        print (self.weather(data) )#+ self.dress(data))
+        print (self.weather(data) + self.dress(data))
 
         # if "how are you" in data:
         #     self.speak("I am fine")

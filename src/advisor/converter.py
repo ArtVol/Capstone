@@ -2,7 +2,6 @@
 import pprint
 from math import fabs
 
-
 class Converter():
     def getIndex(self, data, value):
         a = 0
@@ -32,6 +31,6 @@ class Converter():
             weather["WIND"] = "yes"
 
         # TEMP
-        weather["TEMP"] = str(self.getIndex(parse, int(data["main"]["temp"])))
+        weather["TEMP"] = str(int(data["main"]["temp"]))
 
         return weather
