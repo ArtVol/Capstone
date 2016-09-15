@@ -80,14 +80,10 @@ def clothesAdvisor(data):
         with open(xmls_dir + "\\new_clothes.xml") as src:
             parse = doParse(src)
         out = ''
-        print data
         for p in parse:
             for c in parse[p]:
-                print c, parse[p][c]["TEMP"][0], parse[p][c]["TEMP"][1]
                 if data["RAIN"] in parse[p][c]["RAIN"]:
                     if data["WIND"] in parse[p][c]["WIND"]:
                         if data["TEMP"] >= int(parse[p][c]["TEMP"][0]) and data["TEMP"] <= int(parse[p][c]["TEMP"][1]):
-                            print data["TEMP"] <= parse[p][c]["TEMP"][1], data["TEMP"], parse[p][c]["TEMP"][0], parse[p][c]["TEMP"][1]
-                            print
                             out += c + ", "
         return out
