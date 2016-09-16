@@ -25,8 +25,10 @@ def doParse(src):
         pants = listize(root['clothes']['thing']['pants']['item'])
         shoes = listize(root['clothes']['thing']['shoes']['item'])
         other = listize(root['clothes']['thing']['other']['item'])
+        outerwear = listize(root['clothes']['thing']['outerwear']['item'])
     data = {
          "HEAD":    {},
+         "OUTERWEAR": {},
          "TOP":     {},
          "PANTS":   {},
          "SHOES":   {},
@@ -34,6 +36,14 @@ def doParse(src):
     }
     for c in head:
         data["HEAD"][c["@name"]] = {
+             "SIZE":    c['size'],
+             "TEMP":    c['temp'].split("/"),
+             "WIND":    c['wind'],
+             "RAIN":    c['rain'],
+             "SEASON":  c['season']
+        }
+    for c in outerwear:
+        data["OUTERWEAR"][c["@name"]] = {
              "SIZE":    c['size'],
              "TEMP":    c['temp'].split("/"),
              "WIND":    c['wind'],

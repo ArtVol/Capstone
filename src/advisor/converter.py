@@ -17,7 +17,7 @@ class Converter():
         weather = {}
 
         # RAIN
-        if "drizzle" in data['weather'][0]['description'] or "light rain" in data['weather'][0]['description']:
+        if "drizzle" in data['weather'][0]['description'] or "light" in data['weather'][0]['description']:
             weather["RAIN"] = "light rain"
         elif "rain" in data['weather'][0]['description']:
             weather["RAIN"] = "strong rain"
