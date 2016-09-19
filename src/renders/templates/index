@@ -29,7 +29,7 @@
                 <div style="display: block; clear: left; color: gray; font-size: x-small;" >Wind:
                     ${value['wind']} m/s</div>
                 <div style="display: block; clear: left; color: gray; font-size: x-small;" >Pressure:
-                    ${value['pressure']} hpa</div>
+                    ${value['pressure']} torr</div>
             </div>
         </frame>
     % endfor
