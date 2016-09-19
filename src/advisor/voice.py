@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Requires PyAudio and PySpeech.
 import os
+from time import strftime
 
 import speech_recognition as sr
 from gtts import gTTS
@@ -40,20 +41,40 @@ class Voice():
         return data
 
     def weather(self, data):
-        return "Today is " + data["DESCRIPTION"] + " and " + data["WIND"] + ". Temperature is about " + str(data["TEMP"]) + ". "
+        out = "Today is "
+        # Today
+        for item in data["DESCRIPTION"]:
+            cur_time = item.split(" ")[1].split(":")[0]
+            if item.split(" ") <= strftime("%Y-%m-%d"):
+                out += data["DESCRIPTION"][item] +" at "+ cur_time+ " o'clock "
+        # Tomorrow
+        for item in data["DESCRIPTION"]:
+            cur_time = item.split(" ")[1].split(":")[0]
+            if item.split(" ") > strftime("%Y-%m-%d"):
+                out = ".Tomorrow is "
+                out += data["DESCRIPTION"][item] +" at "+ cur_time+ " o'clock"
+
+        out += ". You can feel " + data["WIND"] + ". Temperature is between " + str(data["TEMP"]["MIN"])\
+               + " and " + str(data["TEMP"]["MAX"]) + ". "
+
+        return out
 
     def dress(self, data):
         #ostr = "In my mind, you should dress up " + clothesAdvisor.clothesAdvisor(data) + ". Good day."
-        return "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT!. Good day."
+        return "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT! Good day."
 
     def sirena(self, data):
         converter = Converter()
 
         weather = converter.conv(data)
-        weather["DESCRIPTION"] = data["weather"][0]['description']
+
+        weather["DESCRIPTION"] = []
+        for item in data["RAIN"]:
+            weather["DESCRIPTION"]= data["RAIN"]
 
         # self.speak(self.weather(weather) + self.dress(weather))
-        return (self.weather(weather) + self.dress(weather))
+        out =  (self.weather(weather) + self.dress(weather))
+        return out
 
         # if "how are you" in data:
         #     self.speak("I am fine")
