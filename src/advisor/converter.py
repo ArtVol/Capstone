@@ -7,16 +7,6 @@ class Converter():
         a = 0
         dif = 100
         val = map(float, data.keys())
-        for item in val:
-            if dif >= fabs(item - value):
-                dif = fabs(item - value)
-                a = item
-        return a
-
-    def getIndex(self, data, value):
-        a = 0
-        dif = 100
-        val = map(float, data.keys())
 
         for item in val:
             if dif >= fabs(item - value):

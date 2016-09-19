@@ -4,6 +4,7 @@ from requests import ConnectionError
 
 from requester import asker
 from advisor import voice
+from advisor import weather
 
 v = voice.Voice()
 #data = get_wather_by_coords(current=True)

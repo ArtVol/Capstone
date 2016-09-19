@@ -7,6 +7,7 @@ import xmltodict
 def listize(obj):
     return obj if isinstance(obj, list) else [obj]
 
+# XML clothes parser
 def doParse(src):
     # Read from XML
     root = xmltodict.parse(src)
