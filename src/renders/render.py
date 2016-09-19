@@ -24,20 +24,26 @@ def get_title(time1, time2):
     # 2016-09-13 15:00:00
     return table[time1[11:13] + '--' + time2[11:13]]
 
+def hpa2torr(value):
+    return value * 0.75006375541921
 
 def plot_pair_data(r_data):
     pair_data = [{}]*len(r_data)
     for i in xrange(len(r_data)):
         first, second = r_data[i]
         pair_data[i] = {'icon':     second['weather'][0]['icon'],
-                        'temp':     q_compare(first['main']['temp'],     second['main']['temp']),
-                        'clouds':   q_compare(first['clouds']['all'],    second['clouds']['all']),
-                        'humidity': q_compare(first['main']['humidity'], second['main'][
-                            'humidity']),
-                        'wind':     q_compare(first['wind']['speed'],    second['wind']['speed']),
-                        'pressure': q_compare(first['main']['pressure'], second['main'][
-                            'pressure']),
-                        'title':    get_title(first['dt_txt'], second['dt_txt'])}
+                        'temp':     q_compare(first['main']['temp'],
+                                              second['main']['temp']),
+                        'clouds':   q_compare(first['clouds']['all'],
+                                              second['clouds']['all']),
+                        'humidity': q_compare(first['main']['humidity'],
+                                              second['main']['humidity']),
+                        'wind':     q_compare(first['wind']['speed'],
+                                              second['wind']['speed']),
+                        'pressure': q_compare(hpa2torr(first['main']['pressure']),
+                                              hpa2torr(second['main']['pressure'])),
+                        'title':    get_title(first['dt_txt'],
+                                              second['dt_txt'])}
 
     return pair_data
 
