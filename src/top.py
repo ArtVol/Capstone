@@ -9,7 +9,8 @@ v = voice.Voice()
 #data = get_wather_by_coords(current=True)
 try:
     data = asker.get_weather_by_citi()
-    v.jarvis(data)
+    text = v.sirena(data)
+    v.speak(text)
 except URLError:
     print("Sorry, master. Can not get URL.")
 except ConnectionError:
