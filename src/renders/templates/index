@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta charset="utf-8" http-equiv="Refresh" content="150">
+        <meta charset="utf-8" http-equiv="Refresh" content="15">
         <title>ClothesAdvisor</title>
     </head>
     <body>
@@ -33,5 +33,9 @@
             </div>
         </frame>
     % endfor
+
+        <div>
+            ${speech}
+        </div>
     </body>
 </html>

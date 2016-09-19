@@ -51,6 +51,7 @@ def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
 
 
 def get_index(r_data,
+              speech_text,
               src_file=os.path.join('renders', 'templates', 'index'),
               dst_file='index.html'):
     dst_file_name = os.path.join(dst_file)
@@ -58,4 +59,5 @@ def get_index(r_data,
     weather = get_time_weather(r_data)
 
     with open(dst_file_name, "w") as f:
-        f.write((Template(filename=src_file_name).render_unicode(**{'values': weather})))
+        f.write((Template(filename=src_file_name).render_unicode(**{'values': weather,
+                                                                    'speech': speech_text})))
