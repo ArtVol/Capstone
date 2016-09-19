@@ -25,5 +25,6 @@ while(True):
     weather_data_for_index, weather_data_for_speech = get_weather()
     text = v.sirena(weather_data_for_speech)
     render.get_index(weather_data_for_index, text)
-    v.speak(text)
+    # v.speak(text)
     time.sleep(40)
+    print 'Iter'
