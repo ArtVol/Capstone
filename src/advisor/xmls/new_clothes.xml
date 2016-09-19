@@ -5,7 +5,7 @@
 			<item name="hat">
 				<size>none</size>
                 <temp>-25/0</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
 			</item>
@@ -14,21 +14,21 @@
             <item name="jacket">
 				<size>XL</size>
                 <temp>5/15</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Autumn, Spring</season>
 			</item>
 			<item name="warm jacket">
 				<size>XL</size>
                 <temp>-10/5</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter, Spring, Autumn</season>
 			</item>
 			<item name="winter jacket">
 				<size>XL</size>
                 <temp>-25/-10</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
 			</item>
@@ -37,21 +37,21 @@
             <item name="light rain top">
                 <size>M</size>
                 <temp>13/25</temp>
-                <wind>no</wind>
+                <wind>calm, light breeze</wind>
                 <rain>no, light rain</rain>
                 <season>Summer</season>
             </item>
             <item name="warm top">
                 <size>XL</size>
                 <temp>-25/23</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Autumn</season>
             </item>
 			<item name="undershirt">
 				<size>XL</size>
                 <temp>-25/-10</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
 			</item>
@@ -60,35 +60,35 @@
             <item name="shorts">
                 <size>M</size>
                 <temp>23/25</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain</rain>
                 <season>Summer</season>
             </item>
 			<item name="light rain pants">
                 <size>M</size>
                 <temp>15/20</temp>
-                <wind>no, yes</wind>
+                <wind>calm</wind>
                 <rain>no, light rain</rain>
                 <season>Summer</season>
             </item>
             <item name="pants">
                 <size>M</size>
                 <temp>-20/15</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain</rain>
                 <season>Autumn, Spring, Summer, Winter</season>
             </item>
 			<item name="warm pants">
                 <size>M</size>
                 <temp>-25/-20</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Summer</season>
             </item>
 			<item name="underpants">
                 <size>M</size>
                 <temp>-25/-10</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
             </item>
@@ -97,28 +97,28 @@
             <item name="sandals">
                 <size>M</size>
                 <temp>20/25</temp>
-                <wind>no, yes</wind>
+                <wind>calm</wind>
                 <rain>no, light rain</rain>
                 <season>Summer</season>
             </item>
 			<item name="sneakers">
                 <size>M</size>
                 <temp>15/20</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Summer</season>
             </item>
 			<item name="shoes">
                 <size>M</size>
                 <temp>-5/15</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain,heavy rain</rain>
                 <season>Autumn, Summer, Spring</season>
             </item>
 			<item name="boots">
                 <size>M</size>
                 <temp>-25/-5</temp>
-                <wind>no, yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
             </item>
@@ -127,14 +127,14 @@
             <item name="scarf">
 				<size>XL</size>
                 <temp>-25/0</temp>
-                <wind>yes</wind>
+                <wind>all</wind>
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
 			</item>
 			<item name="umbrella">
 				<size>none</size>
 				<temp>-5/25</temp>
-				<wind>no, yes</wind>
+				<wind>all</wind>
 				<rain>light rain, heavy rain</rain>
 				<season>Autumn, Summer, Spring</season>
 			</item>

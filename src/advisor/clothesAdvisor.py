@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 
+import sys
 import xmltodict
 
 def listize(obj):
@@ -86,14 +87,14 @@ def doParse(src):
 
 def clothesAdvisor(data):
         parse = {}
-        xmls_dir = os.path.abspath('advisor\\xmls')
-        with open(xmls_dir + "\\new_clothes.xml") as src:
+        xmls_dir = os.path.join('advisor','xmls','new_clothes.xml')
+        with open(xmls_dir) as src:
             parse = doParse(src)
         out = ''
         for p in parse:
             for c in parse[p]:
                 if data["RAIN"] in parse[p][c]["RAIN"]:
-                    if data["WIND"] in parse[p][c]["WIND"]:
+                    if data["WIND"] in parse[p][c]["WIND"] or "all" in parse[p][c]["WIND"]:
                         if data["TEMP"] >= int(parse[p][c]["TEMP"][0]) and data["TEMP"] <= int(parse[p][c]["TEMP"][1]):
                             out += c + ", "
         return out

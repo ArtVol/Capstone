@@ -40,27 +40,20 @@ class Voice():
         return data
 
     def weather(self, data):
-        return "Today is " + data["weather"][0]["description"] + ". Temperature is about " + str(int(data["main"]["temp"])) + ". "
+        return "Today is " + data["DESCRIPTION"] + " and " + data["WIND"] + ". Temperature is about " + str(data["TEMP"]) + ". "
 
     def dress(self, data):
-        converter = Converter()
-        parse = {}
-
-        weather = converter.conv(parse, data)
-        data = {
-            "RAIN": weather["RAIN"],
-            "WIND": weather["WIND"],
-            "TEMP": weather["TEMP"]
-        }
-        # print clothesAdvisor.clothesAdvisor(data)
-
-        ostr = "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT!. Good day."
-
         #ostr = "In my mind, you should dress up " + clothesAdvisor.clothesAdvisor(data) + ". Good day."
-        return ostr
+        return "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT!. Good day."
 
-    def jarvis(self, data):
-        print (self.weather(data) + self.dress(data))
+    def sirena(self, data):
+        converter = Converter()
+
+        weather = converter.conv(data)
+        weather["DESCRIPTION"] = data["weather"][0]['description']
+
+        # self.speak(self.weather(weather) + self.dress(weather))
+        return (self.weather(weather) + self.dress(weather))
 
         # if "how are you" in data:
         #     self.speak("I am fine")
