@@ -1,4 +1,5 @@
 import os
+import pprint
 import sys
 from mako.template import Template
 
@@ -57,13 +58,22 @@ def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
 
 
 def get_index(r_data,
+              cur_data,
               speech_text,
               src_file=os.path.join('renders', 'templates', 'index'),
               dst_file='index.html'):
     dst_file_name = os.path.join(dst_file)
     src_file_name = os.path.join(src_file)
     weather = get_time_weather(r_data)
+    cur_w = {'icon':     cur_data['weather'][0]['icon'],
+             'temp':     cur_data['main']['temp'],
+             'clouds':   cur_data['clouds']['all'],
+             'humidity': cur_data['main']['humidity'],
+             'wind':     cur_data['wind']['speed'],
+             'pressure': round(hpa2torr(cur_data['main']['pressure']), 2),
+             'title':    'Now'}
 
     with open(dst_file_name, "w") as f:
-        f.write((Template(filename=src_file_name).render_unicode(**{'values': weather,
-                                                                    'speech': speech_text})))
+        f.write((Template(filename=src_file_name).render_unicode(**{'values':  weather,
+                                                                    'speech':  speech_text,
+                                                                    'current': cur_w})))
