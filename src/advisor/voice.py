@@ -54,8 +54,9 @@ class Voice():
                 out = ".Tomorrow is "
                 out += data["DESCRIPTION"][item] +" at "+ cur_time+ " o'clock"
 
-        out += ". You can feel " + data["WIND"] + ". Temperature is between " + str(data["TEMP"]["MIN"])\
-               + " and " + str(data["TEMP"]["MAX"]) + ". "
+        out += ". You can feel " + data["WIND"] + ". Temperature is about " + str(data["TEMP"]["NOW"])\
+               + ". Day temperature is about " + str(data["TEMP"]["DAY"]) + " and night is "\
+               + str(data["TEMP"]["NIGHT"]) + ". "
 
         return out
 
@@ -68,11 +69,8 @@ class Voice():
 
         weather = converter.conv(data)
 
-        weather["DESCRIPTION"] = []
-        for item in data["RAIN"]:
-            weather["DESCRIPTION"]= data["RAIN"]
+        weather["DESCRIPTION"]= data["RAIN"]
 
-        # self.speak(self.weather(weather) + self.dress(weather))
         out =  (self.weather(weather) + self.dress(weather))
         return out
 

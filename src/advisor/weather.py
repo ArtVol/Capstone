@@ -1,17 +1,17 @@
 import pprint
 from time import strftime
-
 from src.requester import asker
+
+def mean(numbers):
+    return float(sum(numbers)) / max(len(numbers), 1)
 
 def parser():
     window = 8
     data = asker.get_weather_by_coords(current=False)['list']
     parsed = {}
 
-    ctime = strftime("%Y-%m-%d")
     i = 0
     for item in data:
-        day  = item['dt_txt'].split(" ")[0]
         time = item['dt_txt']
 
         if i < window:
@@ -28,15 +28,31 @@ def get_today_weather():
     data = parser()
 
     weather = {}
-    min_tmp = min(data[item]["TEMP"] for item in data)
-    max_tmp = max(data[item]["TEMP"] for item in data)
+    night_time = ["21:00:00","00:00:00","03:00:00"]
+
+    iter = sorted(data)[0]
+    cur_t = data[iter]["TEMP"]
+    night_t = []
+    day_t = []
+
+    for item in sorted(data):
+        time = item.split(" ")[1]
+        if time in night_time:
+            night_t.append(data[item]["TEMP"])
+        else:
+            day_t.append(data[item]["TEMP"])
+
     weather["TEMP"] = {
-        "MIN" : int(min_tmp),
-        "MAX" : int(max_tmp)
+        "NOW"   : int(cur_t),
+        "NIGHT" : int(round(mean(night_t))),
+        "DAY"   : int(round(mean(day_t)))
     }
+
+    min_wind = min(data[item]["WIND"] for item in data)
+    max_wind = max(data[item]["WIND"] for item in data)
     weather["WIND"] = {
-        "MIN": min(data[item]["WIND"] for item in data),
-        "MAX": max(data[item]["WIND"] for item in data)
+        "MIN": min_wind,
+        "MAX": max_wind
     }
     weather["RAIN"] = {}
     for item in sorted(data):
