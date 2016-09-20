@@ -7,8 +7,8 @@ from requester import asker
 from advisor import voice
 from advisor import weather
 
-v = voice.Voice()
 try:
+    v = voice.Voice()
     data = weather.get_today_weather()
     text = v.sirena(data)
     print text

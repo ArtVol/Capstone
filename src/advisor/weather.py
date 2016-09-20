@@ -42,7 +42,8 @@ def get_today_weather():
     for item in sorted(data):
         time = item
         # if "rain" in data[item]['DESCRIPTION']:
-        if not data[item]['DESCRIPTION'] in weather["RAIN"].values():
-            weather["RAIN"][time] = data[item]['DESCRIPTION']
+        if time > strftime("%Y-%m-%d %H:%M:%S"):
+            if not data[item]['DESCRIPTION'] in weather["RAIN"].values():
+                weather["RAIN"][time] = data[item]['DESCRIPTION']
 
     return weather
