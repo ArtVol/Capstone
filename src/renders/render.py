@@ -56,14 +56,16 @@ def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
 
     return parts
 
+def _write2pattern(template_name, file_name, data):
+    with open(file_name, "w") as f:
+        f.write((Template(filename=template_name).render_unicode(**data)))
+
 
 def get_index(r_data,
               cur_data,
               speech_text,
-              src_file=os.path.join('renders', 'templates', 'index'),
-              dst_file='index.html'):
-    dst_file_name = os.path.join(dst_file)
-    src_file_name = os.path.join(src_file)
+              src_path=os.path.join('renders', 'templates'),
+              dst_path='html'):
     weather = get_time_weather(r_data)
     cur_w = {'icon':     cur_data['weather'][0]['icon'],
              'temp':     cur_data['main']['temp'],
@@ -73,7 +75,11 @@ def get_index(r_data,
              'pressure': round(hpa2torr(cur_data['main']['pressure']), 2),
              'title':    'Now'}
 
-    with open(dst_file_name, "w") as f:
-        f.write((Template(filename=src_file_name).render_unicode(**{'values':  weather,
-                                                                    'speech':  speech_text,
-                                                                    'current': cur_w})))
+    for i, w in zip(xrange(len(weather)), weather):
+        dst_file_name = os.path.join(dst_path, 'fill{}.html'.format(i))
+        src_file_name = os.path.join(src_path, 'fill')
+        _write2pattern(src_file_name, dst_file_name, {'value': w})
+
+    dst_file_name = os.path.join(dst_path, 'report.html')
+    src_file_name = os.path.join(src_path, 'report')
+    _write2pattern(src_file_name, dst_file_name, {'speech': speech_text})
