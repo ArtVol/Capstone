@@ -66,7 +66,7 @@ def get_index(r_data,
               cur_data,
               speech_text,
               src_path=os.path.join('renders', 'templates'),
-              dst_path='html'):
+              dst_path=os.path.join('app', 'templates')):
     weather, rain = get_time_weather(r_data)
     cur_w = {'icon':     cur_data['weather'][0]['icon'],
              'temp':     cur_data['main']['temp'],
