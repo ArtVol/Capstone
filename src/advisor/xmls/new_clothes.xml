@@ -131,13 +131,6 @@
                 <rain>no, light rain, heavy rain</rain>
                 <season>Winter</season>
 			</item>
-			<item name="umbrella">
-				<size>none</size>
-				<temp>-5/25</temp>
-				<wind>all</wind>
-				<rain>light rain, heavy rain</rain>
-				<season>Autumn, Summer, Spring</season>
-			</item>
 		</other>
     </thing>
 </clothes>
