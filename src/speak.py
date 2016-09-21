@@ -10,7 +10,7 @@ import time
 def say():
     v = voice.Voice()
     data = asker.get_weather_by_coords(current=False)['list']
-    text = v.sirena(weather.get_today_weather(data), voice=True)
+    text = v.get_voice_text(weather.get_today_weather(data))
     filename = 'audio{}.mp3'.format(time.strftime("%Y-%m-%d_%H_%M_%S"))
     v.speak(text, filename)
     time.sleep(10)
