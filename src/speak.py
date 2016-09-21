@@ -13,8 +13,8 @@ def say():
     text = v.get_voice_text(weather.get_today_weather(data))
     filename = 'audio{}.mp3'.format(time.strftime("%Y-%m-%d_%H_%M_%S"))
     v.speak(text, filename)
-    time.sleep(10)
-    os.system("rm {}".format(filename))
+    # time.sleep(10)
+    # os.system("rm {}".format(filename))
 
 def key_press(event):
     say()

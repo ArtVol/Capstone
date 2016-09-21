@@ -73,8 +73,7 @@ class Voice():
     def get_html_text(self, data):
         converter = Converter()
         weather = converter.conv(data)
-
-        out = "umbrella" if "rain" in data["RAIN"] else ""
+        out = ""
         weather["DESCRIPTION"] = data["RAIN"]
         out += clothesAdvisor(weather)
 
