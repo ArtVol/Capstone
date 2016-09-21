@@ -2,7 +2,6 @@ __author__ = 'Alex'
 from renders import render
 import data_getter
 from advisor import voice
-from settings import settings_reader
 import time
 
 v = voice.Voice()
