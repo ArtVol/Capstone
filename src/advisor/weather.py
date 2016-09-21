@@ -1,13 +1,11 @@
 import pprint
 from time import strftime
-from src.requester import asker
 
 def mean(numbers):
     return float(sum(numbers)) / max(len(numbers), 1)
 
-def parser():
+def parser(data):
     window = 8
-    data = asker.get_weather_by_coords(current=False)['list']
     parsed = {}
 
     i = 0
@@ -24,8 +22,8 @@ def parser():
 
     return parsed
 
-def get_today_weather():
-    data = parser()
+def get_today_weather(data):
+    data = parser(data)
 
     weather = {}
     night_time = ["21:00:00","00:00:00","03:00:00"]
