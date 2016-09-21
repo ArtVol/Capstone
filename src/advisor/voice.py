@@ -61,16 +61,19 @@ class Voice():
     def dress(self, data):
         umbrella_alert = "Don't forget your Umbrella!" if "rain" in data["RAIN"] else ""
         #ostr = "In my mind, you should dress up " + clothesAdvisor.clothesAdvisor(data) + ". Good day."
-        return "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT! "+ umbrella_alert +" Good day."
+        return "No time to explain, dress up " + clothesAdvisor(data) + "and go OUT! "+ umbrella_alert
 
-    def sirena(self, data):
+    def sirena(self, data, voice=False):
         converter = Converter()
 
         weather = converter.conv(data)
 
         weather["DESCRIPTION"]= data["RAIN"]
+        if voice:
+            out = (self.weather(weather) + self.dress(weather)) + " Good day."
+        else:
+            out = self.weather(weather) + " Good day."
 
-        out =  (self.weather(weather) + self.dress(weather))
         return out
 
         # if "how are you" in data:

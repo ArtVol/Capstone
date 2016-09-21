@@ -10,7 +10,7 @@ import time
 def say():
     v = voice.Voice()
     data = asker.get_weather_by_coords(current=False)['list']
-    text = v.sirena(weather.get_today_weather(data))
+    text = v.sirena(weather.get_today_weather(data), voice=True)
     filename = 'audio{}.mp3'.format(time.strftime("%Y-%m-%d_%H_%M_%S"))
     v.speak(text, filename)
     time.sleep(10)
@@ -18,7 +18,6 @@ def say():
 
 def key_press(event):
     say()
-
     print 'say', time.strftime("%Y-%m-%d %H:%M:%S")
 
 root = tk.Tk()

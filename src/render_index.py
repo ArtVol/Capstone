@@ -15,7 +15,7 @@ while(True):
     current_weather = data_getter.get_current_weather_data(coords)
     data = asker.get_weather_by_coords(current=False)['list']
     weather_data_for_speech = weather.get_today_weather(data)
-    text = v.sirena(weather_data_for_speech)
+    text = v.sirena(weather_data_for_speech, voice=False)
     render.get_index(weather_data_for_index, current_weather, text)
     print('Iter')
     url = os.path.join('html', 'index.html')
