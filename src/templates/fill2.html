@@ -1,14 +1,14 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+        <link rel="stylesheet" type="" href="{{ url_for('static', filename='styles/style.css') }}" />
         <meta charset="utf-8" http-equiv="Refresh" content="150">
         <title>Weather</title>
     </head>
     <body>
-        <div style="float: left; width: 130px;">
-            <div>Evening</div>
+        <div id="fill-div" style="float: left; width: 130px;">
+            <div class="fill_title">Night</div>
             <div style="display: block; clear: left;">
                 <div style="float: left;" title="Titel">
                     <img height="45" width="45" style="border: medium none; width: 45px; height:
@@ -24,11 +24,11 @@
             <div style="display: block; clear: left; font-size: small;">Clouds:
                 92 %</div>
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Humidity:
-                90 ~ 96 %</div>
+                97 ~ 98 %</div>
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Wind:
-                5 m/s</div>
+                5 ~ 6 m/s</div>
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Pressure:
-                751 ~ 750 mm Hg</div>
+                751 ~ 749 mm Hg</div>
         </div>
     </body>
 </html>

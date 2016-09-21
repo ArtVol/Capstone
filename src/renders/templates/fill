@@ -1,14 +1,14 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+        <link rel="stylesheet" type="" href="{{ url_for('static', filename='styles/style.css') }}" />
         <meta charset="utf-8" http-equiv="Refresh" content="150">
         <title>Weather</title>
     </head>
     <body>
-        <div style="float: left; width: 130px;">
-            <div>${value['title']}</div>
+        <div id="fill-div" style="float: left; width: 130px;">
+            <div class="fill_title">${value['title']}</div>
             <div style="display: block; clear: left;">
                 <div style="float: left;" title="Titel">
                     <img height="45" width="45" style="border: medium none; width: 45px; height:

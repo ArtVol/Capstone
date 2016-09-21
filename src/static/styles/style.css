@@ -1,0 +1,38 @@
+body {
+    background: rgb(222,235,247);
+}
+frame {
+    background: rgb(222,235,247);
+}
+#title-div {
+    font-family: Candara;
+    font-size: 26px;
+    color: rgb(222,235,247);
+    background: rgb(0,32,96);
+}
+#fill-div {
+    font-family: Candara;
+    font-size: 20px;
+    color: rgb(0,32,96);
+}
+
+#report-div {
+    font-family: Candara;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(46,117,182);
+    background: rgb(222,235,247);
+}
+
+#home-div {
+    font-family: Candara;
+    font-size: 16px;
+    color: rgb(222,235,247);
+    background: rgb(0,32,96);
+}
+#umbrella-div {
+    font-family: Candara;
+    font-size: 20px;
+    color: rgb(255,0,0);
+    background: rgb(222,235,247);
+}

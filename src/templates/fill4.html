@@ -1,14 +1,14 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+        <link rel="stylesheet" type="" href="{{ url_for('static', filename='styles/style.css') }}" />
         <meta charset="utf-8" http-equiv="Refresh" content="150">
         <title>Weather</title>
     </head>
     <body>
-        <div style="float: left; width: 130px;">
-            <div>Morning</div>
+        <div id="fill-div" style="float: left; width: 130px;">
+            <div class="fill_title">Day</div>
             <div style="display: block; clear: left;">
                 <div style="float: left;" title="Titel">
                     <img height="45" width="45" style="border: medium none; width: 45px; height:
@@ -17,7 +17,7 @@
                 </div>
                 <div style="float: left;">
                     <div style="display: block; clear: left; font-size: medium; font-weight:
-                    bold; padding: 0pt 3pt;" title="Current Temperature">7 &deg;C</div>
+                    bold; padding: 0pt 3pt;" title="Current Temperature">9 ~ 8 &deg;C</div>
                     <div style="display: block; width: 85px; overflow: visible;"></div>
                 </div>
             </div>
@@ -26,9 +26,9 @@
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Humidity:
                 100 %</div>
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Wind:
-                4 m/s</div>
+                4 ~ 3 m/s</div>
             <div style="display: block; clear: left; color: gray; font-size: x-small;" >Pressure:
-                748 mm Hg</div>
+                746 ~ 745 mm Hg</div>
         </div>
     </body>
 </html>
