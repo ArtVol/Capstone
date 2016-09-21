@@ -1,5 +1,3 @@
-import webbrowser
-import os
 import speak
 from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
@@ -59,7 +57,6 @@ def report():
 @app.route('/settings.html')
 def settings():
     return render_template('settings.html')
-
 
 if __name__ == '__main__':
     app.run()
