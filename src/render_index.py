@@ -8,8 +8,9 @@ from advisor import weather
 from requester import asker
 import time
 
-v = voice.Voice()
-while(True):
+def render_ind():
+    v = voice.Voice()
+    #while(True):
     weather_data_for_index = data_getter.get_weather_data_for_index()
     coords = {'lat': 55.75, 'lon': 37.62} # Moscow coords
     current_weather = data_getter.get_current_weather_data(coords)
@@ -18,4 +19,4 @@ while(True):
     text = v.get_html_text(weather_data_for_speech)
     render.get_index(weather_data_for_index, current_weather, text)
     print('Iter')
-    exit()
+    # time.sleep(360)
