@@ -1,0 +1,10 @@
+frame {
+    background: rgb(222,235,247);
+}
+
+div{
+    font-family: Candara;
+    font-size: 16px;
+    color: rgb(222,235,247);
+    background: rgb(0,32,96);
+}
