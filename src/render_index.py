@@ -1,4 +1,6 @@
 __author__ = 'Alex'
+import webbrowser
+import os
 from renders import render
 import data_getter
 from advisor import voice
@@ -16,4 +18,10 @@ while(True):
     text = v.sirena(weather_data_for_speech)
     render.get_index(weather_data_for_index, current_weather, text)
     print('Iter')
+    url = os.path.join('html', 'index.html')
+
+    # Open URL in new window, raising the window if possible.
+    webbrowser.open_new(url)
+    webbrowser
+    exit()
     time.sleep(10)
