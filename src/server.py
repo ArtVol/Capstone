@@ -1,6 +1,7 @@
 import webbrowser
 import os
-from flask import Flask, render_template, url_for
+import speak
+from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,6 +20,10 @@ def home():
 def button():
     return render_template('button.html')
 
+@app.route('/my-link/')
+def my_link():
+    speak.say()
+    return render_template('button.html')
 @app.route('/fill1.html')
 def fill1():
     return render_template('fill1.html')
@@ -56,12 +61,5 @@ def settings():
     return render_template('settings.html')
 
 
-
-@app.route('/my-link/')
-def my_link():
-    print 'I got clicked!'
-
-    return index()
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

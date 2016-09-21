@@ -15,11 +15,3 @@ def say():
     v.speak(text, filename)
     # time.sleep(10)
     # os.system("rm {}".format(filename))
-
-def key_press(event):
-    say()
-    print 'say', time.strftime("%Y-%m-%d %H:%M:%S")
-
-root = tk.Tk()
-root.bind('<KeyPress>', key_press)
-root.mainloop()
