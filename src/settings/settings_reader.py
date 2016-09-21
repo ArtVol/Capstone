@@ -1,5 +1,5 @@
-import os
 __author__ = 'Alex'
+import os
 import re
 
 def get_coords(file_sett=os.path.join('settings', 'setting')):

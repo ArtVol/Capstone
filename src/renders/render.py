@@ -1,6 +1,4 @@
 import os
-import pprint
-import sys
 from mako.template import Template
 
 def q_compare(value1, value2):
@@ -30,6 +28,7 @@ def hpa2torr(value):
 
 def plot_pair_data(r_data):
     pair_data = [{}]*len(r_data)
+    rain = False
     for i in xrange(len(r_data)):
         first, second = r_data[i]
         pair_data[i] = {'icon':     second['weather'][0]['icon'],
@@ -45,8 +44,9 @@ def plot_pair_data(r_data):
                                               hpa2torr(second['main']['pressure'])),
                         'title':    get_title(first['dt_txt'],
                                               second['dt_txt'])}
-
-    return pair_data
+        if not rain:
+            rain = ('rain' in first or 'rain' in second) and (first['rain'] or second['rain'])
+    return pair_data, rain
 
 
 def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
@@ -55,6 +55,7 @@ def get_time_weather(data):# data = asker.get_weather_by_coords(current=False)
     parts = plot_pair_data(r_data)
 
     return parts
+
 
 def _write2pattern(template_name, file_name, data):
     with open(file_name, "w") as f:
@@ -66,7 +67,7 @@ def get_index(r_data,
               speech_text,
               src_path=os.path.join('renders', 'templates'),
               dst_path='html'):
-    weather = get_time_weather(r_data)
+    weather, rain = get_time_weather(r_data)
     cur_w = {'icon':     cur_data['weather'][0]['icon'],
              'temp':     cur_data['main']['temp'],
              'clouds':   cur_data['clouds']['all'],
@@ -75,7 +76,7 @@ def get_index(r_data,
              'pressure': round(hpa2torr(cur_data['main']['pressure']), 2),
              'title':    'Now'}
 
-    for i, w in zip(xrange(len(weather)), weather):
+    for i, w in zip(xrange(1, len(weather) + 1), weather):
         dst_file_name = os.path.join(dst_path, 'fill{}.html'.format(i))
         src_file_name = os.path.join(src_path, 'fill')
         _write2pattern(src_file_name, dst_file_name, {'value': w})
@@ -83,3 +84,7 @@ def get_index(r_data,
     dst_file_name = os.path.join(dst_path, 'report.html')
     src_file_name = os.path.join(src_path, 'report')
     _write2pattern(src_file_name, dst_file_name, {'speech': speech_text})
+
+    dst_file_name = os.path.join(dst_path, 'umbrella.html')
+    src_file_name = os.path.join(src_path, 'umbrella')
+    _write2pattern(src_file_name, dst_file_name, {'umbrella': rain})
