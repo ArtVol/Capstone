@@ -97,5 +97,5 @@ def clothesAdvisor(data):
                 if data["RAIN"] in parse[p][c]["RAIN"]:
                     if data["WIND"] in parse[p][c]["WIND"] or "all" in parse[p][c]["WIND"]:
                         if data["TEMP"]["NOW"] >= int(parse[p][c]["TEMP"][0]) and data["TEMP"]["NOW"] <= int(parse[p][c]["TEMP"][1]):
-                            out += c + ", "
+                            out += c + ","
         return out

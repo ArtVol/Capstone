@@ -22,6 +22,13 @@ img.umbrella {
     color: rgb(0,32,96);
     background: rgb(222,235,247);
 }
+#clothes-text {
+    font-family: Candara;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(0,32,96);
+    background: rgb(222,235,247);
+}
 #button-div {
     position: absolute;
     right: 0;

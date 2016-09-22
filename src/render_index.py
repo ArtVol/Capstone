@@ -16,7 +16,8 @@ def render_ind():
     current_weather = data_getter.get_current_weather_data(coords)
     data = asker.get_weather_by_coords(current=False)['list']
     weather_data_for_speech = weather.get_today_weather(data)
-    text = v.get_html_text(weather_data_for_speech)
-    render.get_index(weather_data_for_index, current_weather, text)
+    weather_text = v.get_html_weather_text(weather_data_for_speech)
+    clothes_text = v.get_clothes_text(weather_data_for_speech)
+    render.get_index(weather_data_for_index, current_weather, weather_text, clothes_text)
     print('Iter')
     # time.sleep(360)

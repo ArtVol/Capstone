@@ -65,6 +65,7 @@ def _write2pattern(template_name, file_name, data):
 def get_index(r_data,
               cur_data,
               speech_text,
+              clothes_text,
               src_path=os.path.join('renders', 'templates'),
               dst_path=os.path.join('templates')):
     weather, rain = get_time_weather(r_data)
@@ -76,15 +77,23 @@ def get_index(r_data,
              'pressure': round(hpa2torr(cur_data['main']['pressure']), 2),
              'title':    'Now'}
 
+    # Weather frames
     for i, w in zip(xrange(1, len(weather) + 1), weather):
         dst_file_name = os.path.join(dst_path, 'fill{}.html'.format(i))
         src_file_name = os.path.join(src_path, 'fill')
         _write2pattern(src_file_name, dst_file_name, {'value': w})
 
+    # Clothes frame
+    dst_file_name = os.path.join(dst_path, 'clothes.html')
+    src_file_name = os.path.join(src_path, 'clothes')
+    _write2pattern(src_file_name, dst_file_name, {'speech': clothes_text})
+
+    # Report frame
     dst_file_name = os.path.join(dst_path, 'report.html')
     src_file_name = os.path.join(src_path, 'report')
     _write2pattern(src_file_name, dst_file_name, {'speech': speech_text})
 
+    # Umbrella frame
     dst_file_name = os.path.join(dst_path, 'umbrella.html')
     src_file_name = os.path.join(src_path, 'umbrella')
     _write2pattern(src_file_name, dst_file_name, {'umbrella': rain})

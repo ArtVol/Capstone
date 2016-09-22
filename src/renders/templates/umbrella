@@ -10,7 +10,7 @@
         <div id="umbrella-div">
             % if umbrella:
                 <%block>Take Umbrella!</%block>
-                <img class="umbrella" src="{{ url_for('static', filename = 'umbrella.bmp') }}" width="100" height="100" border="0">
+                <img class="umbrella" src="{{ url_for('static', filename = 'umbrella.bmp') }}" width="65" height="65" border="0">
             % endif
 
             % if not umbrella:

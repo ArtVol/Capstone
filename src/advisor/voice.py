@@ -70,12 +70,23 @@ class Voice():
 
         return out
 
-    def get_html_text(self, data):
+    def get_clothes_text(self, data):
+        converter = Converter()
+        weather = converter.conv(data)
+        weather["DESCRIPTION"] = data["RAIN"]
+        clothes = clothesAdvisor(weather).split(",")
+        out = "<p>"
+        for item in clothes:
+            out += item + "<br>"
+        out += "</p>"
+        return out
+
+    def get_html_weather_text(self, data):
         converter = Converter()
         weather = converter.conv(data)
         out = ""
         weather["DESCRIPTION"] = data["RAIN"]
-        out += clothesAdvisor(weather)
+        out += self.weather(weather)
 
         return out
 
