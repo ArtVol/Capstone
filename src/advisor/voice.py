@@ -11,11 +11,11 @@ from clothesAdvisor import clothesAdvisor
 from converter import Converter
 
 class Voice():
-    def speak(self, audioString, filename):
-        print(audioString)
+    def save_speech(self, audioString, filename):
+        # print(audioString)
         tts = gTTS(text=audioString, lang='en')
         tts.save(filename)
-        playsound(filename)
+        # playsound(filename)
 
     def recordAudio(self):
         # Record Audio

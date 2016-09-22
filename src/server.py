@@ -1,5 +1,4 @@
 import render_index
-import speak
 from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
@@ -22,7 +21,7 @@ def button():
 
 @app.route('/my-link/')
 def my_link():
-    speak.say()
+    open('file.say', 'a').close()
     return render_template('button.html')
 @app.route('/fill1.html')
 def fill1():
