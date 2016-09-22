@@ -1,3 +1,5 @@
+import os
+import subprocess
 import render_index
 from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
@@ -21,7 +23,10 @@ def button():
 
 @app.route('/my-link/')
 def my_link():
-    open('file.say', 'a').close()
+    if 'file.say' not in os.listdir(os.path.curdir):
+        open('file.say', 'a').close()
+        subprocess.Popen('python speak.py')
+
     return render_template('button.html')
 @app.route('/fill1.html')
 def fill1():
