@@ -63,7 +63,7 @@ def get_voice_text(data):
     converter = Converter()
     weather = converter.conv(data)
 
-    umbrella_alert = "Don't forget your Umbrella!" if "rain" in data["RAIN"].values() else ""
+    umbrella_alert = "Don't forget your Umbrella!" if ["rain" in item for item in data["RAIN"].values()] else ""
     weather["DESCRIPTION"] = data["RAIN"]
 
     out = weather_predict(weather) + "No time to explain, dress up " + clothesAdvisor(weather)\
