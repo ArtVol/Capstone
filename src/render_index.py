@@ -22,6 +22,8 @@ def check_weather_data(data):
     return True
 
 def remove_mp3():
+    while 'file.say' in os.listdir(os.path.curdir):
+        pass
     for f in os.listdir(os.path.curdir):
         if re.search(r'.*\.mp3', f):
             os.remove(f)
