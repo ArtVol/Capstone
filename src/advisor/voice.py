@@ -63,8 +63,7 @@ def get_voice_text(data):
     converter = Converter()
     weather = converter.conv(data)
 
-
-    umbrella_alert = "Don't forget your Umbrella!" if "rain" in data["RAIN"] else ""
+    umbrella_alert = "Don't forget your Umbrella!" if "rain" in data["RAIN"].values() else ""
     weather["DESCRIPTION"] = data["RAIN"]
 
     out = weather_predict(weather) + "No time to explain, dress up " + clothesAdvisor(weather)\
@@ -77,10 +76,10 @@ def get_clothes_text(data):
     weather = converter.conv(data)
     weather["DESCRIPTION"] = data["RAIN"]
     clothes = clothesAdvisor(weather).split(", ")
-    out = "<p>"
+    out = "<ul>"
     for item in clothes:
-        out += item + "<br>"
-    out += "</p>"
+        out += "<li>" + item + "</li>"
+    out += "</ul>"
     return out
 
 def get_html_weather_text(data):
