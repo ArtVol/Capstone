@@ -1,3 +1,4 @@
+import pprint
 __author__ = 'Alex'
 import re
 import os
@@ -41,6 +42,7 @@ def render_ind():
 
     print 'Render html start'
     weather_data_for_speech = weather.get_today_weather(weather_data['list'])
+
     text = v.get_html_text(weather_data_for_speech)
     render.get_index(weather_data, current_weather, text)
     print 'Render done'
@@ -49,5 +51,4 @@ def render_ind():
     remove_mp3()
     save_mp3(v, v.get_voice_text(weather_data_for_speech))
     print 'Success'
-
 render_ind()

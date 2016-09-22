@@ -2,47 +2,49 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}" />
         <meta charset="utf-8" http-equiv="Refresh" content="150" http-equiv="Cache-Control" content="no-cache">
         <title>ClothesAdvisor</title>
     </head>
-    <frameset rows = "10%, 60%, 30%" frameborder = "no">
+    <frameset  rows = "10%, 5%, 85%" frameborder = "no">
     <!---->
-        <frameset cols = "70%, 20%, 10%" frameborder = "no">
-            <frame src = "title.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-            <frame src = "skoltech.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-            <frame src = "button.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+        <frameset cols = "50%, 40%, 10%" frameborder = "no">
+            <frame style="background-color: rgb(222,235,247)" src = "title.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+            <frame style="background-color: rgb(222,235,247)" src = "" marginwidth = "0" marginheight ="0" scrolling ="no">
+            <frame style="background-color: rgb(222,235,247)" src = "button.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+        </frameset>
+        <frameset  cols = "100%" frameborder = "no">
+            <frame style="background-color: rgb(222,235,247)" src = "" marginwidth = "0" marginheight ="0" scrolling ="no">
         </frameset>
     <!---->
         <frameset cols = "80%, 20%" frameborder = "no">
         <!---->
-            <frameset rows = "10%, 90%" frameborder = "no">
+            <frameset rows = "8%, 62%, 30%" frameborder = "no">
             <!---->
-                <frame src = "home.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                <frameset cols = "15%, 85%" frameborder = "no">
+                    <frame style="background-color: rgb(222,235,247)" src = "home.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "" marginwidth = "0" marginheight ="0" scrolling ="no">
+                </frameset>
             <!---->
                 <frameset cols = "25%, 25%, 25%, 25%" frameborder = "no">
-                    <frame src = "fill1.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-                    <frame src = "fill2.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-                    <frame src = "fill3.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-                    <frame src = "fill4.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "fill1.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "fill2.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "fill3.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "fill4.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                </frameset>
+                <frameset cols = "7%, 95%" frameborder = "no">
+                    <frame style="background-color: rgb(222,235,247)" src = "settings.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                    <frame style="background-color: rgb(222,235,247)" src = "report.html" marginwidth = "0" marginheight ="0" scrolling ="no">
                 </frameset>
             </frameset>
         <!---->
-            <frameset rows = "65%, 35%" frameborder = "no">
-                <frame src = "clothes.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-                <frame src = "umbrella.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-            </frameset>                
+            <frameset rows = "45%, 45%, 10%" frameborder = "no">
+                <frame style="background-color: rgb(222,235,247)" src = "clothes.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                <frame style="background-color: rgb(222,235,247)" src = "umbrella.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+                <frame style="background-color: rgb(222,235,247)" src = "skoltech.html" marginwidth = "0" marginheight ="0" scrolling ="no">
+            </frameset>
         </frameset>
     <!---->
-        <frameset cols = "96%, 4%" frameborder = "no">
-            <frame src = "report.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-            <frame src = "settings.html" marginwidth = "0" marginheight ="0" scrolling ="no">
-        </frameset>        
     </frameset>
-    
-    
-    
-    
-<NOFRAMES>
-</NOFRAMES>
 </HTML>
 

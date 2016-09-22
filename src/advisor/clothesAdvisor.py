@@ -87,15 +87,15 @@ def doParse(src):
     return data
 
 def clothesAdvisor(data):
-        parse = {}
-        xmls_dir = os.path.join('advisor','xmls','new_clothes.xml')
+        xmls_dir = os.path.join('advisor', 'xmls', 'new_clothes.xml')
         with open(xmls_dir) as src:
             parse = doParse(src)
-        out = ''
+        out = []
         for p in parse:
             for c in parse[p]:
                 if data["RAIN"] in parse[p][c]["RAIN"]:
                     if data["WIND"] in parse[p][c]["WIND"] or "all" in parse[p][c]["WIND"]:
-                        if data["TEMP"]["NOW"] >= int(parse[p][c]["TEMP"][0]) and data["TEMP"]["NOW"] <= int(parse[p][c]["TEMP"][1]):
-                            out += c + ", "
-        return out
+                        if data["TEMP"]["NOW"] >= int(parse[p][c]["TEMP"][0]) \
+                            and data["TEMP"]["NOW"] <= int(parse[p][c]["TEMP"][1]):
+                            out.append(c)
+        return ', '.join(out)

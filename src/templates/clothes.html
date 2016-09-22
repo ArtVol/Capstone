@@ -1,3 +1,11 @@
 <!doctype html>
+<head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}" />
+</head>
 <title>clothes</title>
-<img src="{{ url_for('static', filename = 'clothes.bmp') }}" width="100" height="100" border="0">
+<body>
+    <div id="clothes-div">
+        Suggested clothes
+    </div>
+    <img  class="clothes" src="{{ url_for('static', filename = 'clothes.bmp') }}" width="100" height="100" border="0">
+</body>
