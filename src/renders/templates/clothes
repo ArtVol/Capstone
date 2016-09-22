@@ -4,10 +4,6 @@
 </head>
 <title>clothes</title>
 <body>
-    <div id="clothes-div">
-        <p>Suggested clothes</p>
-
-    </div>
     <div id="clothes-text">
         ${speech}
     </div>
