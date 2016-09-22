@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # render_index.render_ind()
+    render_index.render_ind()
     return render_template('index.html')
 
 @app.route('/title.html')

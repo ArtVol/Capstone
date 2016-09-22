@@ -5,6 +5,39 @@ body{
 frame{
     background-color: rgb(222,235,247);
 }
+img.clothes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+img.umbrella {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+#clothes-div {
+    font-family: Candara;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(0,32,96);
+    background: rgb(222,235,247);
+}
+#button-div {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#skoltech-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#settings-img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
 
 #title-div {
     font-family: Candara;
