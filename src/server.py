@@ -59,5 +59,9 @@ def report():
 def settings():
     return render_template('settings.html')
 
+@app.route('/suggest.html')
+def suggest():
+    return render_template('suggest.html')
+
 if __name__ == '__main__':
     app.run()
